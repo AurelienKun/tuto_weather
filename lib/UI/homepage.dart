@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:tuto_weather/UI/weather.dart';
 
 class MyHomePage extends StatefulWidget {
   MyHomePage({this.title});
@@ -12,11 +13,12 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.yellow.shade100,
       appBar: AppBar(
         title: Text(widget.title),
       ),
       body: Center(
-        child: Text("Wecome to weather app"),
+        child: Weather(),
       ),
     );
   }

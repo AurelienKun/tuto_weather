@@ -13,6 +13,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
         visualDensity: VisualDensity.adaptivePlatformDensity,
+        backgroundColor: Colors.lightBlue,
       ),
       home: MyHomePage(title: 'Weather'),
     );
