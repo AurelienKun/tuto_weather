@@ -12,18 +12,17 @@ class MapApi {
   static MapApi getInstance() => _instance ??= MapApi();
 
   String _apiCall({double lat, double lon,}) {
-    //forecast?id=524901&APPID={YOUR API KEY}';
     return _endpoint + "/weather?lat=" + lat.toString() + "&lon=" + lon.toString() + "&APPID=" + _apiKey + "&units=metric";    
   }
 
-  getWeather({double lat, double lon}) async {
+  Future<WeatherData> getWeather({double lat, double lon}) async {
     var response = await client.get(
       Uri.encodeFull(_apiCall(lat: lat, lon: lon)),
       headers: {
         'Accept': 'application/json'
       }
     );
-
+    print(response.body);
     return WeatherData.deserialize(response.body);
   }
 }
