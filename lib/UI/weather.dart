@@ -49,7 +49,7 @@ class Weather extends StatelessWidget {
     );
 
     Widget descriptionSection = Container(
-      child: Row(
+      child: Column(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -59,6 +59,7 @@ class Weather extends StatelessWidget {
               fontSize: 24.0,
               fontWeight: FontWeight.bold,
             ),
+            maxLines: 3,
           ),
           Text(
             weatherData.main,
