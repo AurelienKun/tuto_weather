@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
+import 'package:tuto_weather/model/WeatherData.dart';
 
 class Weather extends StatelessWidget {
-  const Weather({Key key}) : super(key: key);
+  final WeatherData weatherData;
+
+  Weather({@required this.weatherData});
 
   @override
   Widget build(BuildContext context) {
@@ -22,7 +25,7 @@ class Weather extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text(
-            "20",
+            weatherData.temp.toStringAsFixed(0),
             style: TextStyle(fontSize: 80.0),
           ),
           Expanded(
@@ -35,10 +38,10 @@ class Weather extends StatelessWidget {
               ),
             ),
           ),
-          Image.asset(
-            'assets/img/nuage.png',
-            width: 140.0,
-            height: 140.0,
+          Image.network(
+            'https://openweathermap.org/img/w/${weatherData.icon}.png',
+            width: 100.0,
+            height: 100.0,
             fit: BoxFit.cover,
           ),
         ],
@@ -51,13 +54,14 @@ class Weather extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text(
-            "Tokyo",
+            weatherData.name,
             style: TextStyle(
               fontSize: 24.0,
               fontWeight: FontWeight.bold,
             ),
-          ),Text(
-            "Nuageux",
+          ),
+          Text(
+            weatherData.main,
             style: TextStyle(
               fontSize: 24.0,
               fontWeight: FontWeight.normal,
